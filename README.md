@@ -1,0 +1,1 @@
+A simple ledge detection system made in CPP, well optemized and tweakable, this automatically finds ledge in front of player and stops the movement when player tries to walk off!
