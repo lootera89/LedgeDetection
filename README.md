@@ -1,7 +1,8 @@
 # Ledge Detection & Blocking System for Unreal Engine 5.3+
 
-This is a lightweight C++ system to prevent your character from walking off high ledges.  
-It's simple, optimized, and works out of the box — no plugins or extra setup required.
+This is a lightweight C++ system to prevent your character from walking off high ledges,  
+while also keeping the jump in between ledges enabled (Which can easily be toggled off aswell!)
+It's simple, optimized, and works out of the box, no plugins or extra setup required.
 
 ## What It Does
 - Casts line traces in front of the character
