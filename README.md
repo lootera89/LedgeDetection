@@ -4,9 +4,6 @@ This project is licensed under the **MIT License** – short, simple, and permis
 
 You’re free to **use**, **modify**, **share**, and **build** whatever you want with it — for personal, educational, or commercial projects. No strings attached.
 
-> **Just do us a solid and leave the original license and copyright
-> notice in place.**
-
 ---
 
 ### ✅ What You Can Do
