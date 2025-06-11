@@ -45,12 +45,14 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
 
+
+	///////// COPY FROM HERE START /////////
+
 	// Movement variables
 	float InterpSpeed = 10.0f;
-	float MaxA = 1500.f;
-	float MaxS = 500.f;
 	float AddFlt = 1.f;
 
+	// simple do once
 	bool stopped = false;
 	bool played = false;
 
@@ -92,11 +94,15 @@ protected:
 	float TimerDelay = 0.01; // Tweak this value to LESS for faster more precise trace
 	float FallThreshHold = 170.0f; // Tweak this value to change ledge height threshhold
 
+	// Trigger once on input pressed and released
+	void TriggerStartMove(const FInputActionValue& Value);
+	void TriggerEndMove(const FInputActionValue& Value);
+
+	///////// COPY FROM HERE END /////////
+
 	// Input callbacks
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
-	void TriggerStartMove(const FInputActionValue& Value);
-	void TriggerEndMove(const FInputActionValue& Value);
 
 	// ACharacter overrides
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;

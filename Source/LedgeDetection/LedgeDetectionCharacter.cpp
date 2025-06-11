@@ -28,15 +28,14 @@ ALedgeDetectionCharacter::ALedgeDetectionCharacter()
 	bUseControllerRotationRoll = false;
 
 	// Configure character movement
-	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f); // ...at this rotation rate
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f); // rotation rate
 
 	// Note: For faster iteration times these variables, and many more, can be tweaked in the Character Blueprint
 	// instead of recompiling to adjust them
 	GetCharacterMovement()->JumpZVelocity = 700.f;
 	GetCharacterMovement()->AirControl = 0.35f;
-	GetCharacterMovement()->MaxAcceleration = MaxA;
-	GetCharacterMovement()->MaxWalkSpeed = MaxS;
+	GetCharacterMovement()->MaxAcceleration = 1500.f;
+	GetCharacterMovement()->MaxWalkSpeed = 500.f;
 	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 	GetCharacterMovement()->BrakingDecelerationFalling = 1500.0f;
@@ -53,6 +52,8 @@ ALedgeDetectionCharacter::ALedgeDetectionCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
+	///////// COPY FROM HERE START /////////
+
     // Create front left arrow component
 	NArrowLeft = CreateDefaultSubobject<UArrowComponent>(TEXT("NArrowLeft"));
 	NArrowLeft->SetupAttachment(RootComponent);
@@ -67,6 +68,7 @@ ALedgeDetectionCharacter::ALedgeDetectionCharacter()
     NArrowRight->SetWorldLocation(FVector(ArrowToPlayerDistance, ArrowInBetweenDistance, -80.0f));
     NArrowRight->SetWorldScale3D(FVector(0.5f, 0.5f, 0.5f));
 
+	///////// COPY FROM HERE END /////////
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
@@ -105,11 +107,15 @@ void ALedgeDetectionCharacter::SetupPlayerInputComponent(UInputComponent* Player
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ALedgeDetectionCharacter::Look);
 
+		///////// COPY FROM HERE START /////////
+
 		// Trigger Start Moving
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &ALedgeDetectionCharacter::TriggerStartMove);
 
 		// Trigger End Moving
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Completed, this, &ALedgeDetectionCharacter::TriggerEndMove);
+
+		///////// COPY FROM HERE END /////////
 	}
 	else
 	{
@@ -128,6 +134,8 @@ void ALedgeDetectionCharacter::Move(const FInputActionValue& Value)
 		const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 
+		///////// COPY FROM HERE START (ONLY COPY THIS IF YOU HAVE OrientRotationToMovement DISABLED IN PLAYER MOVEMENT) /////////
+
 		AddMovementInput(ForwardDirection, MovementVector.Y * AddFlt);
 		AddMovementInput(RightDirection, MovementVector.X * AddFlt);
 
@@ -145,9 +153,10 @@ void ALedgeDetectionCharacter::Move(const FInputActionValue& Value)
 				FRotator CurrentRot = GetActorRotation();
 				FRotator NewRot = FMath::RInterpTo(CurrentRot, TargetRot, GetWorld()->GetDeltaSeconds(), InterpSpeed);
 				SetActorRotation(NewRot);
+
 			}
 		}
-	}
+	} 	///////// COPY FROM HERE END /////////
 }
 
 
@@ -163,6 +172,8 @@ void ALedgeDetectionCharacter::Look(const FInputActionValue& Value)
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+
+///////// COPY FROM HERE START /////////
 
 //////////////////////////////////////////////////////////////////////////
 // Line Trace
@@ -267,3 +278,4 @@ void ALedgeDetectionCharacter::RaycastToBottom()
 	}
 	
 }
+///////// COPY FROM HERE END /////////
