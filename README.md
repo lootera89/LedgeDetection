@@ -14,16 +14,17 @@ It's simple, optimized, and works out of the box — no plugins or extra setup r
 Everything is inside the `LedgeCharacter.cpp` file.
 If you want to copy the code to your own character class, just copy the part between the following comments:
 
-///////// COPY FROM HERE START /////////
-... code ...
-///////// COPY FROM HERE END /////////
+///////// COPY FROM HERE START ////////  
+... code ...  
+///////// COPY FROM HERE END /////////  
 
-Make sure to **replace the actor/class name** where necessary to match your character.
+Make sure to **replace the actor/class name** where necessary to match your character.  
 
 If you have any questions or run into issues, feel free to reach out to me on Discord:  
 **@lootera89** I'll be happy to help.
 
 
-#License: MIT
+
+**License: MIT**
 This project is licensed under the **MIT License** – short, simple, and permissive.
 You’re free to **use**, **modify**, **share**, and **build** whatever you want with it — for personal, educational, or commercial projects. No strings attached.
