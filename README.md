@@ -17,4 +17,4 @@ You’re free to **use**, **modify**, **share**, and **build** whatever you want
 
 ---
 
-For the full legal text, check out the [`LICENSE`](./LICENSE) file or visit [opensource.org/licenses/MIT](https://opensource.org/licenses/MIT).
+For the full legal text, visit [opensource.org/licenses/MIT](https://opensource.org/licenses/MIT).
