@@ -13,7 +13,7 @@ It's simple, optimized, and works out of the box, no plugins or extra setup requ
 ## How to Use
 
 Everything is inside the `Source/LedgeDetection/LedgeDetectionCharacter.cpp` file.
-If you want to copy the code to your own character class, just copy the part between the following comments:
+If you want to copy the code to your own character class, just search for `Copy` and copy the part between the following comments:
 
 ///////// COPY FROM HERE START ////////  
 ... code ...  
