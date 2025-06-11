@@ -1,1 +1,20 @@
-A simple ledge detection system made in CPP, well optemized and tweakable, this automatically finds ledge in front of player and stops the movement when player tries to walk off!
+## License: MIT
+
+This project is licensed under the **MIT License** – short, simple, and permissive.
+
+You’re free to **use**, **modify**, **share**, and **build** whatever you want with it — for personal, educational, or commercial projects. No strings attached.
+
+---
+
+### What You Can Do
+- Use it **commercially**
+- Modify it however you like
+- Distribute it freely
+- Integrate it into your own projects
+
+### What You Can’t Do
+- **Sue me**
+
+---
+
+For the full legal text, visit [opensource.org/licenses/MIT](https://opensource.org/licenses/MIT).
