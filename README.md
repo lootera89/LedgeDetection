@@ -23,9 +23,3 @@ Make sure to **replace the actor/class name** where necessary to match your char
 
 If you have any questions or run into issues, feel free to reach out to me on Discord:  
 **@lootera89** I'll be happy to help.
-
-
-
-**License: MIT**
-This project is licensed under the **MIT License** – short, simple, and permissive.
-You’re free to **use**, **modify**, **share**, and **build** whatever you want with it — for personal, educational, or commercial projects. No strings attached.
